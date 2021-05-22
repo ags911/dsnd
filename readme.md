@@ -12,15 +12,15 @@ But how will they know what to consider to make their property an attractive pro
 
 <h2>Libraries</h2>
 
-<li>pandas</li>
-<li>numpy</li>
-<li>missingno</li>
-<li>seaborn</li>
-<li>matplotlib</li>
-<li>calendar</li>
-<li>plotly.express</li>
-<li>random</li>
-<li>sklearn</li>
+<li>Pandas</li>
+<li>NumPy</li>
+<li>Missingno</li>
+<li>Seaborn</li>
+<li>Matplotlib</li>
+<li>Calendar</li>
+<li>Plotly.Express</li>
+<li>Random</li>
+<li>Sklearn</li>
 
 <h3>Installation</h3>
 
