@@ -1,4 +1,4 @@
-## Darren Gidado's Data Analyst Portfolio
+## Darren Gidado's Data Scientist Portfolio
 
 <!-- Project 1 -->
 
