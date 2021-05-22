@@ -13,14 +13,14 @@ But how will they know what to consider to make their property an attractive pro
 <h2>Libraries Used</h2>
 
 <li>pandas</li>
-numpy
-missingno
-seaborn
-matplotlib
-calendar
-plotly.express
-random
-sklearn
+<li>numpy</li>
+<li>missingno</li>
+<li>seaborn</li>
+<li>matplotlib</li>
+<li>calendar</li>
+<li>plotly.express</li>
+<li>random</li>
+<li>sklearn</li>
 
 Your README that you have submitted is missing a few sections. The repository must have a README.md file that also communicates
 
