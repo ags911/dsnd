@@ -12,7 +12,7 @@ But how will they know what to consider to make their property an attractive pro
 
 <h2>Libraries Used</h2>
 
-pandas
+<li>pandas</li>
 numpy
 missingno
 seaborn
