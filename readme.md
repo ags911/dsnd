@@ -10,7 +10,7 @@ But how will they know what to consider to make their property an attractive pro
 
 <br></br>
 
-<h2>Libraries Used</h2>
+<h2>Libraries</h2>
 
 <li>pandas</li>
 <li>numpy</li>
@@ -22,9 +22,22 @@ But how will they know what to consider to make their property an attractive pro
 <li>random</li>
 <li>sklearn</li>
 
-Your README that you have submitted is missing a few sections. The repository must have a README.md file that also communicates
+<h3>Installation</h3>
 
-the libraries used (optional -- how to install)
-the motivation for the project (this should be in detail -- why was this project chosen?)
-a summary of the results of the analysis (can include a brief sentence summarizing the answer to each of your asked questions)
-the files in the repository with a small description of each
+Each library can be installed via pip from PyPI using Anaconda Prompt. Simply insert the name of each of the above libraries as shown below.
+
+pip install <library name here>
+
+<h2>Project Motivation</h2>
+ 
+Over the past few years, Airbnb renting has become a popular alternative to hotels for tourists and travellers who want the extra space and comfort a home can provide. That's attracted an influx of investors looking to cash in on the growing market for short-term rentals. However, not all properties and locations may bring in good profits. How can we determine how and why this happens? Can we find any specific things investors should look for when  choosing a property to invest in? How can we increase profitability once we have started the Airbnb, and can we look at some reviews to see where to improve?
+  
+<h2>Results</h2>
+  
+Our recommendation for a first time Airbnb home owner is to find a property in a location close to the city center. If budget is an issue then the next best thing would be to buy a property with good transport routes to the center. The next thing to think about is the type of property. It would be best to go for house as a first choice or an apartment as second choice, if budget permits.
+
+The next most important thing to consider is whether to rent out the rooms or the home as a whole. From research, I think the best option is to rent out the home as a whole. There may be some risk in having periods of the home vacant instead of spreading the risk with multiple rooms. If the property has more than 3 rooms this may be a consideration.
+
+Comfort is a very important part of the customers' experience in an Airbnb from our research so good beds should be considered. Being a Superhost seems to be a great benefit to exposure and potential profits since customers want great experiences. Being consistent and working on personalising customers' experiences should be the main focus when starting out as being a Superhost should be the objective. 
+  
+Finally on the review research...It is possible to use just raw text as input for making predictions but the most important factor is being able to extract relevant features from the data. I would say it should be used as a complimentary source of data in order to extract more machine learning features to increase the predictive power of a current model.
