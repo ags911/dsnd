@@ -26,7 +26,7 @@ But how will they know what to consider to make their property an attractive pro
 
 Each library can be installed via pip from PyPI using Anaconda Prompt. Simply insert the name of each of the above libraries as shown below:
 
-<b>pip install "library name here"</b>
+<pre>pip install "library name here"</pre>
 
 <h2>Project Motivation</h2>
  
