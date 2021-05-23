@@ -11,7 +11,7 @@ But how will they know what to consider to make their property an attractive pro
 <br></br>
 
 <h2>Libraries</h2>
-<h3>Prerequisites</h3>
+<h3>Requirements</h3>
 
 <li>Pandas</li>
 <li>NumPy</li>
