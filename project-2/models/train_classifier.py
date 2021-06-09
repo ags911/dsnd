@@ -2,7 +2,7 @@
 Classifier Trainer
 Project: Disaster Response Pipeline (Udacity - Data Science Nanodegree)
 Sample Script Syntax:
-> python train_classifier.py <path to sqllite  destination db> <path to the pickle file>
+> python train_classifier.py <path to sqllite destination db> <path to the pickle file>
 Sample Script Execution:
 > python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
 
@@ -52,10 +52,8 @@ def load_data_from_db(database_filepath):
     """
 
     engine = create_engine('sqlite:///{}'.format(database_filepath))
-    #engine = create_engine('sqlite:///' + database_filepath)
     table_name = os.path.basename(database_filepath).replace('.db','') + '_table'
     df = pd.read_sql_table('DisasterResponse_table', engine)
-    #df = pd.read_sql_table(table_name, engine)
     
     # assign ml variables
     X = df['message']
@@ -98,7 +96,7 @@ def tokenize(text,url_place_holder_string="urlplaceholder"):
 # Build a custom transformer which will extract the starting verb of a sentence
 class StartingVerbExtractor(BaseEstimator, TransformerMixin):
     """
-    Starting Verb Extractor class
+    Starting Verb Extractor Class
     
     This class extract the starting verb of a sentence,
     creating a new feature for the ML classifier
@@ -123,7 +121,7 @@ class StartingVerbExtractor(BaseEstimator, TransformerMixin):
 
 def build_pipeline():
     """
-    Build Pipeline function
+    Build Pipeline Function
     
     Output:
         Scikit ML Pipeline to process text based messages and apply a classifier.
@@ -155,7 +153,7 @@ def build_pipeline():
 
 def multioutput_fscore(y_true,y_pred,beta=1):
     """
-    MultiOutput F-score function
+    MultiOutput F-score Function
     
     A performance metric creating a geometric mean of the fbeta_score, it is computed on each label.
     - Compatible with multi-label and multi-class problems.
@@ -197,7 +195,7 @@ def multioutput_fscore(y_true,y_pred,beta=1):
 
 def evaluate_pipeline(pipeline, X_test, y_test, category_names):
     """
-    Evaluate Model function
+    Evaluate Model Function
     
     This function applies a ML pipeline to a test set then prints out the model performance with the accuracy and f1-score
     
@@ -225,7 +223,7 @@ def evaluate_pipeline(pipeline, X_test, y_test, category_names):
 
 def save_model_as_pickle(pipeline, pickle_filepath):
     """
-    Save Pipeline function
+    Save Pipeline Function
     
     This function saves the trained model as a Pickle (.pkl) file, which will be loaded later.
     
@@ -242,7 +240,7 @@ def save_model_as_pickle(pipeline, pickle_filepath):
 
 def main():
     """
-    Train Classifier Main function
+    Train Classifier Main Function
     
     This function applies the Machine Learning Pipeline:
         1) Extract data from SQLite db
@@ -277,10 +275,10 @@ def main():
 
     else:
          print("Please provide the arguments correctly: \nSample Script Execution:\n\
-> python train_classifier.py ../data/disaster_response_db classifier.pkl \n\
-Arguments Description: \n\
-1) Path to SQLite destination database (e.g. DisasterResponse.db)\n\
-2) Path to pickle file name where ML model needs to be saved (e.g. classifier.pkl")
+                > python train_classifier.py ../data/disaster_response_db classifier.pkl \n\
+                Arguments Description: \n\
+                1) Path to SQLite destination database (e.g. DisasterResponse.db)\n\
+                2) Path to pickle file name where ML model needs to be saved (e.g. classifier.pkl")
 
 if __name__ == '__main__':
     main()
