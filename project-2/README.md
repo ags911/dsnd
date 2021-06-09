@@ -33,7 +33,7 @@ This project includes a web app where an emergency worker can input a new messag
 
 To clone the git repository:
 ```
-git clone https://github.com/ags911/blob/main/dsnd/project-2.git
+git clone https://github.com/ags911/udacity-dsnd.git
 ```
 
 ## Instructions:
