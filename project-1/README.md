@@ -1,4 +1,4 @@
-## Darren Gidado's Data Scientist Portfolio
+## Predicting Airbnb Prices In Boston
 
 <!-- Project 1 -->
 
