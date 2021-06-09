@@ -4,6 +4,12 @@
  
 ![jpg](images/aid.jpg)
  
+## Table of Contents
+
+ - [Introduction](#introduction)
+ - [Instructions](#instructions)
+ - [Screenshots](#screenshots)
+ 
 ### Introduction:
 
 In this project, we used data engineering skills to analyze disaster data from Figure Eight. This data was used to build a model for an API that classifies disaster messages.
@@ -24,6 +30,8 @@ This project includes a web app where an emergency worker can input a new messag
     `python app/run.py`
 
 3. Go to http://0.0.0.0:3001/
+
+### Screenshots
 
 ![png](images/disaster-response-project1.png)
 
