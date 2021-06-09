@@ -10,7 +10,11 @@ In this project, we used data engineering skills to analyze disaster data from F
 
 In the project folder there is a data set containing real messages that were sent during disaster events. A machine learning pipeline was created to categorize these events so that the messages could be sent to an appropriate disaster relief agency.
 
+![jpg](images/disaster-response-project1.jpg)
+
 This project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data. This project showscases software skills, including creating basic data pipelines using clean, organized code.
+
+![jpg](images/disaster-response-project2.jpg)
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
