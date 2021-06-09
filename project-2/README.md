@@ -6,9 +6,11 @@
  
 ## Table of Contents
 
- - [Summary](#summary)
- - [Instructions](#instructions)
- - [Screenshots](#screenshots)
+ 1. [Summary](#summary)
+ 2. [Dependencies](#dependencies)
+ 3. [Installation](#installation)
+ 4. [Instructions](#instructions)
+ 5. [Screenshots](#screenshots)
  
 ## Summary:
 
@@ -17,6 +19,22 @@ In this project, we used data engineering skills to analyze disaster data from F
 In the project folder there is a data set containing real messages that were sent during disaster events. A machine learning pipeline was created to categorize these events so that the messages could be sent to an appropriate disaster relief agency.
 
 This project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data. This project showscases software skills, including creating basic data pipelines using clean, organized code.
+
+## Dependencies
+
+- Python: 3.5+
+- Machine Learning Libraries: Pandas, NumPy, SciPy, Sciki-Learn
+- Natural Language Process Libraries: NLTK
+- SQLlite Database Libraqries: SQLalchemy
+- Model Loading and Saving Library: Pickle
+- Web App and Data Visualization: Flask, Plotly
+
+## Installation:
+
+To clone the git repository:
+```
+git clone https://github.com/ags911/dsnd/project-2.git
+```
 
 ## Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
