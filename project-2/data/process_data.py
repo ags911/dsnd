@@ -1,3 +1,17 @@
+"""
+Process Data
+Project: Disaster Response Pipeline (Udacity - Data Science Nanodegree)
+Sample Script Syntax:
+> python train_classifier.py <path to messages csv> <path to categories csv> <path to sqllite destination db>
+Sample Script Execution:
+> python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
+Arguments:
+    1) Path to messages csv file
+    2) Path to categories csv file
+    3) Path to SQLite destination database (e.g. DisasterResponse.db)
+"""
+
+# import libraries
 import sys
 import pandas as pd
 import numpy as np
