@@ -18,6 +18,15 @@ import numpy as np
 from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
+    """
+    Load Data from csv Function
+    
+    Arguments:
+        messages_filepath, categories_filepath
+    Output:
+        return df
+    """
+    
     # 1. load datasets
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
@@ -29,6 +38,15 @@ def load_data(messages_filepath, categories_filepath):
     
 
 def clean_data(df):
+    """
+    Clean Data from csv Function
+    
+    Arguments:
+        df -> dataframe containing disaster messages and categories
+    Output:
+        return df
+    """
+    
     # 3. split categories into separate category columns.
     categories = df['categories'].str.split(';', expand=True)
     row = categories.iloc[:1]
@@ -58,13 +76,29 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
+    """
+    Clean Data from csv Function
+    
+    Arguments:
+        df -> dataframe containing disaster messages and categories
+        database_filename -> filename of SQLLite database
+    """
+    
     engine = create_engine('sqlite:///'+ database_filename)
     table_name = database_filename.replace('.db','') + '_table'
     df.to_sql('DisasterResponse_table', engine, index=False, if_exists='replace')
-    #df.to_sql(table_name, engine, index=False, if_exists='replace')
-
 
 def main():
+    """
+    Process Data Main Function
+    
+    This function applies the ETL process to the data:
+        1) Load data from csv files
+        2) Clean data from csv files
+        3) Save data to SQLite database
+    
+    """
+        
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
