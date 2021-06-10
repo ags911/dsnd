@@ -37,6 +37,7 @@ git clone https://github.com/ags911/udacity-dsnd.git
 ```
 
 ## Instructions
+
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
@@ -49,7 +50,7 @@ git clone https://github.com/ags911/udacity-dsnd.git
 
 3. Go to http://0.0.0.0:3001/
 
-## Screenshots:
+## Screenshots
 
 ![png](images/disaster-response-project1.png)
 
