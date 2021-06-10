@@ -12,7 +12,7 @@
  4. [Instructions](#instructions)
  5. [Screenshots](#screenshots)
  
-## Summary:
+## Summary
 
 In this project, we used data engineering skills to analyze disaster data from Figure Eight. This data was used to build a model for an API that classifies disaster messages.
 
@@ -29,14 +29,14 @@ This project includes a web app where an emergency worker can input a new messag
 - Model Loading and Saving Library: Pickle
 - Web App and Data Visualization: Flask, Plotly
 
-## Installation:
+## Installation
 
 To clone the git repository:
 ```
 git clone https://github.com/ags911/udacity-dsnd.git
 ```
 
-## Instructions:
+## Instructions
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
