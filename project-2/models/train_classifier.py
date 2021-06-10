@@ -58,7 +58,7 @@ def load_data_from_db(database_filepath):
     
     return X, y, category_names
 
-def tokenize(text, url_place_holder_string = "urlplaceholder"):
+def tokenize(text, url_placeholder = "urlplaceholder"):
     """
     Tokenize text messages function
     
@@ -69,14 +69,14 @@ def tokenize(text, url_place_holder_string = "urlplaceholder"):
     """
     
     # use regex to replace each url with a placeholder string
-    url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+    url_re = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     
     # use regex to extract all the urls from input text
-    detected_urls = re.findall(url_regex, text)
+    detect_urls = re.findall(url_re, text)
     
-    # replace urls by looping through detected_urls
-    for detected_url in detected_urls:
-        text = text.replace(detected_url, url_place_holder_string)
+    # replace urls by looping through detect_urls
+    for detect_url in detect_urls:
+        text = text.replace(detect_url, url_placeholder)
 
     # extract word tokens from text input
     tokens = nltk.word_tokenize(text)
