@@ -35,11 +35,11 @@ def load_data_from_db(database_filepath):
     Load Data from the Database Function
     
     Arguments:
-        database_filepath -> Path to SQLite destination database (e.g. disaster_response_db.db)
+        database_filepath: Path to SQLite destination database
     Output:
-        X -> a dataframe containing features
-        y, -> a dataframe containing labels
-        category_names -> List of categories name
+        X: a dataframe containing features
+        y: a dataframe containing labels
+        category_names: List of categories name
     """
 
     engine = create_engine('sqlite:///{}'.format(database_filepath))
