@@ -1,5 +1,9 @@
 """
 Train Classifier
+
+This Python script is a machine learning pipeline that loads data from the SQLite database then splits the dataset into training and test sets.
+Next, it builds a text processing pipeline using NLP and machine learning pipeline using sklearn. The final steps are to train and tune the model using
+GridSearchCV before outputting the results on the test set. Once the final model has been processed it is exported as a pickle file.
 """
 
 # import ntlk modules
