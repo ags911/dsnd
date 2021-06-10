@@ -89,13 +89,11 @@ def tokenize(text, url_placeholder = "urlplaceholder"):
     
     return clean_tokens
 
-# Build a custom transformer which will extract the starting verb of a sentence
 class StartingVerbExtractor(BaseEstimator, TransformerMixin):
     """
-    Starting Verb Extractor Class
+    Starting verb extractor class
     
-    This class extract the starting verb of a sentence,
-    creating a new feature for the ML classifier
+    This class is used to extract the starting verb of each sentence, this will be used to create new features for the machine learning classifier.
     """
 
     def starting_verb(self, text):
@@ -117,10 +115,10 @@ class StartingVerbExtractor(BaseEstimator, TransformerMixin):
 
 def build_pipeline():
     """
-    Build Pipeline Function
+    Build pipeline function
     
     Output:
-        Scikit ML Pipeline to process text based messages and apply a classifier.
+        Sklearn ML Pipeline to process text based messages and apply a classifier.
         
     """
     pipeline = Pipeline([
@@ -141,51 +139,43 @@ def build_pipeline():
               'classifier__estimator__n_estimators': [10, 20, 40]}
 
     cv = GridSearchCV(pipeline, param_grid = parameters, 
-                      scoring = 'f1_micro', n_jobs = -1, verbose = 2)
-
-    #cv.fit(X_train, y_train)
-    
+                      scoring = 'f1_micro', n_jobs = -1, verbose = 2)    
     return cv
 
-def multioutput_fscore(y_true,y_pred,beta=1):
+def multioutput_fscore(y_actual, y_estimators, beta = 1):
     """
-    MultiOutput F-score Function
-    <CHANGE THIS WHOLE SECTION>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    A performance metric creating a geometric mean of the fbeta_score, it is computed on each label.
-    - Compatible with multi-label and multi-class problems.
-    - Features some peculiarities such as geometric mean, 100% removal, etc. These are used to exclude
-    trivial solutions by deliberatly under-estimating the f-beta_score average.
-    The aim is to avoid issues in dealing with multi-class/multi-label imbalanced cases.
+    MultiOutput F-score function
     
-    Used as a scorer for GridSearchCV:
-        scorer = make_scorer(multioutput_fscore,beta=1)
-        
+    This function creates a geometric mean of the fbeta_score, it operates on each label using sklearn.multioutput.
+    It uses multi-target classification which usually consists of fitting one classifier per target. This function
+    was created to target issues with multi-label imbalances and to be used as a scorer for GridSearchCV.
+       
     Arguments:
-        y_true: List of labels
-        y_prod: List of predictions
-        beta: Beta value to be used to calculate fscore metric
+        y_actual: a list of labels
+        y_estimators: a list of predictions
+        beta: value required to calculate f-score
     
     Output:
-        f1-score: Calculation geometric mean of f-score
+        f1-score: a weighted average of the precision and recall values
     """
     
-    # If provided y predictions is a dataframe then extract the values from that
-    if isinstance(y_pred, pd.DataFrame) == True:
-        y_pred = y_pred.values
+    # if y_estimators is a dataframe then extract values
+    if isinstance(y_estimators, pd.DataFrame) == True:
+        y_estimators = y_estimators.values
     
-    # If provided y actuals is a dataframe then extract the values from that
-    if isinstance(y_true, pd.DataFrame) == True:
-        y_true = y_true.values
+    # if y_actual is a dataframe then extract values
+    if isinstance(y_actual, pd.DataFrame) == True:
+        y_actual = y_actual.values
     
     f1score_list = []
-    for column in range(0,y_true.shape[1]):
-        score = fbeta_score(y_true[:,column],y_pred[:,column],beta,average='weighted')
+    for column in range(0, y_actual.shape[1]):
+        score = fbeta_score(y_actual[:, column], y_estimators[:, column], beta, average = 'weighted')
         f1score_list.append(score)
         
     f1score = np.asarray(f1score_list)
-    f1score = f1score[f1score<1]
+    f1score = f1score[f1score < 1]
     
-    # Get the geometric mean of f1score
+    # extract geometric mean from the f1score
     f1score = gmean(f1score)
     return f1score
 
@@ -193,56 +183,52 @@ def evaluate_pipeline(pipeline, X_test, y_test, category_names):
     """
     Evaluate Model Function
     
-    This function applies a ML pipeline to a test set then prints out the model performance with the accuracy and f1-score
+    This function applies a ML pipeline to a test set then prints the model performance along with the accuracy and f1-score.
     
     Arguments:
-        pipeline: A valid scikit ML Pipeline
-        X_test: Test features
-        y_test: Test labels
-        category_names: label names (multi-output)
+        pipeline: ML pipeline
+        X_test: test features
+        y_test: test labels
+        category_names: label names
     """
     y_pred = pipeline.predict(X_test)
     
     multi_f1 = multioutput_fscore(y_test,y_pred, beta = 1)
     overall_accuracy = (y_pred == y_test).mean().mean()
 
-    print('Average overall accuracy {0:.2f}%'.format(overall_accuracy*100))
-    print('F1 score (custom definition) {0:.2f}%'.format(multi_f1*100))
+    print('Average overall accuracy {0:.2f}%'.format(overall_accuracy * 100))
+    print('F1-score (custom definition) {0:.2f}%'.format(multi_f1 * 100))
 
-    # Print the whole classification report.
+    # classification report
     y_pred = pd.DataFrame(y_pred, columns = y_test.columns)
     
     for column in y_test.columns:
         print('Model Performance with Category: {}'.format(column))
         print(classification_report(y_test[column],y_pred[column]))
 
-
 def save_model_as_pickle(pipeline, pickle_filepath):
     """
-    Save Pipeline Function
+    Save pipeline function
     
     This function saves the trained model as a Pickle (.pkl) file, which will be loaded later.
     
     Arguments:
-        pipeline: GridSearchCV or Scikit Pipelin object
-        pickle_filepath: destination path to save .pkl file
+        pipeline: GridSearchCV/Scikit pipeline
+        pickle_filepath: destination path to save pickle file
     
     """
     pickle.dump(pipeline, open(pickle_filepath, 'wb'))
-    
-    #pkl_filename = '{}'.format(pickle_filepath)
-    #with open(pkl_filename, 'wb') as file:
-    #    pickle.dump(pipline, file)
 
 def main():
     """
-    Train Classifier Main Function
+    Main Function/Train Classifier
     
-    This function applies the Machine Learning Pipeline:
-        1) Extract data from SQLite db
-        2) Train ML model on training set
-        3) Estimate model performance on test set
-        4) Save trained model as Pickle
+    This function performs the following processes to create the Machine Learning Pipeline:
+        1) Extract data from SQLite .db file
+        2) Train model on training set
+        3) Use .best_estimator_ on the GridSearch and use this as the 'optimal' output to reduce .pkl size
+        4) Evaluate model performance on test set
+        5) Save trained model as .pkl file
     
     """
     if len(sys.argv) == 3:
