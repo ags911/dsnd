@@ -15,38 +15,38 @@ import sys
 import os
 import re
 from sqlalchemy import create_engine
-import pickle
 from scipy.stats import gmean
+import pickle
 
 # import sklearn modules
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import fbeta_score, make_scorer
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier, AdaBoostClassifier
-from sklearn.model_selection import GridSearchCV
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.base import BaseEstimator,TransformerMixin
 
 def load_data_from_db(database_filepath):
     """
-    Load Data from the Database Function
+    Load Data from the database function
     
     Arguments:
-        database_filepath: Path to SQLite destination database
+        database_filepath -> path to the SQLite destination database
     Output:
-        X: a dataframe containing features
-        y: a dataframe containing labels
-        category_names: List of categories name
+        X -> a dataframe containing features
+        y -> a dataframe containing labels
+        category_names: list of category names
     """
 
     engine = create_engine('sqlite:///{}'.format(database_filepath))
     table_name = os.path.basename(database_filepath).replace('.db','') + '_table'
     df = pd.read_sql_table('DisasterResponse_table', engine)
     
-    # assign ml variables
+    # assigning x and y variables
     X = df['message']
     y = df.iloc[:,4:]
     
@@ -103,7 +103,7 @@ class StartingVerbExtractor(BaseEstimator, TransformerMixin):
         return False
 
     # Given it is a tranformer we can return the self 
-    def fit(self, X, y=None):
+    def fit(self, X, y = None):
         return self
 
     def transform(self, X):
@@ -145,7 +145,7 @@ def build_pipeline():
 def multioutput_fscore(y_true,y_pred,beta=1):
     """
     MultiOutput F-score Function
-    
+    <CHANGE THIS WHOLE SECTION>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     A performance metric creating a geometric mean of the fbeta_score, it is computed on each label.
     - Compatible with multi-label and multi-class problems.
     - Features some peculiarities such as geometric mean, 100% removal, etc. These are used to exclude
