@@ -39,10 +39,10 @@ def load_data_from_db(database_filepath):
     Load Data from the database function
     
     Arguments:
-        database_filepath -> path to the SQLite destination database
+        database_filepath: path to the SQLite destination database
     Output:
-        X -> a dataframe containing features
-        y -> a dataframe containing labels
+        X: a dataframe containing features
+        y: a dataframe containing labels
         category_names: list of category names
     """
 
@@ -63,9 +63,9 @@ def tokenize(text,url_place_holder_string="urlplaceholder"):
     Tokenize the text function
     
     Arguments:
-        text -> Text message which needs to be tokenized
+        text: Text message which needs to be tokenized
     Output:
-        clean_tokens -> List of tokens extracted from the provided text
+        clean_tokens: List of tokens extracted from the provided text
     """
     
     # replace all urls with a urlplaceholder string
@@ -160,12 +160,12 @@ def multioutput_fscore(y_true,y_pred,beta=1):
         scorer = make_scorer(multioutput_fscore,beta=1)
         
     Arguments:
-        y_true -> List of labels
-        y_prod -> List of predictions
-        beta -> Beta value to be used to calculate fscore metric
+        y_true: List of labels
+        y_prod: List of predictions
+        beta: Beta value to be used to calculate fscore metric
     
     Output:
-        f1-score -> Calculation geometric mean of f-score
+        f1-score: Calculation geometric mean of f-score
     """
     
     # If provided y predictions is a dataframe then extract the values from that
@@ -195,10 +195,10 @@ def evaluate_pipeline(pipeline, X_test, y_test, category_names):
     This function applies a ML pipeline to a test set then prints out the model performance with the accuracy and f1-score
     
     Arguments:
-        pipeline -> A valid scikit ML Pipeline
-        X_test -> Test features
-        y_test -> Test labels
-        category_names -> label names (multi-output)
+        pipeline: A valid scikit ML Pipeline
+        X_test: Test features
+        y_test: Test labels
+        category_names: label names (multi-output)
     """
     y_pred = pipeline.predict(X_test)
     
@@ -223,8 +223,8 @@ def save_model_as_pickle(pipeline, pickle_filepath):
     This function saves the trained model as a Pickle (.pkl) file, which will be loaded later.
     
     Arguments:
-        pipeline -> GridSearchCV or Scikit Pipelin object
-        pickle_filepath -> destination path to save .pkl file
+        pipeline: GridSearchCV or Scikit Pipelin object
+        pickle_filepath: destination path to save .pkl file
     
     """
     pickle.dump(pipeline, open(pickle_filepath, 'wb'))
