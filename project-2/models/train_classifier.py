@@ -39,53 +39,54 @@ def load_data_from_db(database_filepath):
     Load Data from the database function
     
     Arguments:
-        database_filepath: path to the SQLite destination database
+        database_filepath: path to the SQLite database
     Output:
-        X: a dataframe containing features
-        y: a dataframe containing labels
-        category_names: list of category names
+        X: dataframe column containing features
+        y: dataframe columns containing labels
+        category_names: a list of category names
     """
 
     engine = create_engine('sqlite:///{}'.format(database_filepath))
-    table_name = os.path.basename(database_filepath).replace('.db','') + '_table'
     df = pd.read_sql_table('DisasterResponse_table', engine)
     
     # assigning x and y variables
     X = df['message']
     y = df.iloc[:,4:]
     
-    category_names = y.columns # used for visualization purposes
+    # used for visualization
+    category_names = y.columns 
+    
     return X, y, category_names
 
-
-def tokenize(text,url_place_holder_string="urlplaceholder"):
+def tokenize(text, url_place_holder_string = "urlplaceholder"):
     """
-    Tokenize the text function
+    Tokenize text messages function
     
     Arguments:
-        text: Text message which needs to be tokenized
+        text: text message to be tokenized
     Output:
-        clean_tokens: List of tokens extracted from the provided text
+        clean_tokens: a list containing tokens extracted from text input
     """
     
-    # replace all urls with a urlplaceholder string
+    # use regex to replace each url with a placeholder string
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     
-    # Extract all the urls from the provided text 
+    # use regex to extract all the urls from input text
     detected_urls = re.findall(url_regex, text)
     
-    # Replace url with a url placeholder string
+    # replace urls by looping through detected_urls
     for detected_url in detected_urls:
         text = text.replace(detected_url, url_place_holder_string)
 
-    # Extract the word tokens from the provided text
+    # extract word tokens from text input
     tokens = nltk.word_tokenize(text)
     
-    #Lemmanitizer to remove inflectional and derivationally related forms of a word
+    # use lemmatization to obtain the root forms of inflected/derived words
     lemmatizer = nltk.WordNetLemmatizer()
 
-    # List of clean tokens
+    # creating a list of clean tokens
     clean_tokens = [lemmatizer.lemmatize(w).lower().strip() for w in tokens]
+    
     return clean_tokens
 
 # Build a custom transformer which will extract the starting verb of a sentence
