@@ -1,14 +1,5 @@
 """
-Classifier Trainer
-Project: Disaster Response Pipeline (Udacity - Data Science Nanodegree)
-Sample Script Syntax:
-> python train_classifier.py <path to sqllite destination db> <path to the pickle file>
-Sample Script Execution:
-> python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
-
-Arguments:
-    1) Path to SQLite destination database (e.g. DisasterResponse.db)
-    2) Path to pickle file name where ML model needs to be saved (e.g. classifier.pkl)
+Train Classifier
 """
 
 # import ntlk modules
@@ -73,7 +64,7 @@ def tokenize(text,url_place_holder_string="urlplaceholder"):
         clean_tokens -> List of tokens extracted from the provided text
     """
     
-    # Replace all urls with a urlplaceholder string
+    # replace all urls with a urlplaceholder string
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     
     # Extract all the urls from the provided text 
