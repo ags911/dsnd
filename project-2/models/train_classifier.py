@@ -91,7 +91,7 @@ def tokenize(text, url_placeholder = "urlplaceholder"):
 
 class StartingVerbExtractor(BaseEstimator, TransformerMixin):
     """
-    Starting verb extractor class
+    Starting Verb Extractor class
     
     This class is used to extract the starting verb of each sentence, this will be used to create new features for the machine learning classifier.
     """
@@ -105,7 +105,7 @@ class StartingVerbExtractor(BaseEstimator, TransformerMixin):
                 return True
         return False
 
-    # Given it is a tranformer we can return the self 
+    # return the self from transformer
     def fit(self, X, y = None):
         return self
 
