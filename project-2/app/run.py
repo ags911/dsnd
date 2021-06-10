@@ -1,3 +1,4 @@
+# import libraries
 import json
 import plotly
 import pandas as pd
@@ -23,9 +24,9 @@ class StartingVerbExtractor(BaseEstimator, TransformerMixin):
     """
     Starting Verb Extractor class
     
-    This class extract the starting verb of a sentence,
-    creating a new feature for the ML classifier
+    This class is used to extract the starting verb of each sentence, this will be used to create new features for the machine learning classifier.
     """
+
     def starting_verb(self, text):
         sentence_list = nltk.sent_tokenize(text)
         for sentence in sentence_list:
@@ -34,16 +35,25 @@ class StartingVerbExtractor(BaseEstimator, TransformerMixin):
             if first_tag in ['VB', 'VBP'] or first_word == 'RT':
                 return True
         return False
-    
-    # Given it is a tranformer we can return the self 
-    def fit(self, X, y=None):
+
+    # return the self from transformer
+    def fit(self, X, y = None):
         return self
-    
+
     def transform(self, X):
         X_tagged = pd.Series(X).apply(self.starting_verb)
         return pd.DataFrame(X_tagged)
     
 def tokenize(text):
+    """
+    Tokenize text messages function
+    
+    Arguments:
+        text: text message to be tokenized
+    Output:
+        clean_tokens: a list containing tokens extracted from text input
+    """
+
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
     
@@ -61,31 +71,35 @@ df = pd.read_sql_table('DisasterResponse_table', engine)
 # load model
 model = joblib.load('models/classifier.pkl')
 
-# index webpage displays cool visuals and receives user input text for model
+# index webpage displays visuals and receives user input text for model
 @app.route('/')
 @app.route('/index')
 
 def index():
+    """
+    Index function
     
-    # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
+    This function is used to init Plotly and show visualizations to users on the web app by inputting data.
+    """
+    
+    # use data to display charts
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
     related_counts = df.groupby('related').count()['message']
     related_names = list(related_counts.index)
     
-    
-    # create visuals
+    # create charts
     graphs = [
-            # GRAPH 1 - genre graph
+            # GRAPH 1 - Genre Graph
         {
             'data': [
                 Bar(
-                    x=genre_names,
-                    y=genre_counts
+                    x = genre_names,
+                    y = genre_counts
                 )
             ],
+            
             'layout': {
                 'title': 'Distribution of Message Genres',
                 'yaxis': {
@@ -96,16 +110,16 @@ def index():
                 }
             }
         },
-            # GRAPH 2 - category graph    
+            # GRAPH 2 - Category Graph    
         {
             'data': [
                 Bar(
-                    x=related_names,
-                    y=related_counts
+                    x = related_names,
+                    y = related_counts
                 )
             ],
             'layout': {
-                'title': 'Distribution of Message Related to Disaster',
+                'title': 'Distribution of Messages Related to Disaster',
                 'yaxis': {
                     'title': "Count"
                 },
@@ -116,7 +130,7 @@ def index():
         }
     ]
     
-    # encode plotly graphs in JSON
+    # encode plotly graphs using JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
     graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
     
@@ -127,6 +141,11 @@ def index():
 @app.route('/go')
 
 def go():
+    """
+    Go function
+    
+    This function is used to save inputs as queries and refer to model for classification. The go.html file will also be rendered as a web page for viewing.
+    """
     # save user input in query
     query = request.args.get('query', '') 
     
@@ -137,11 +156,11 @@ def go():
     # this will render the go.html Please see that file. 
     return render_template(
         'go.html',
-        query=query,
-        classification_result=classification_results
+        query = query,
+        classification_result = classification_results
     )
 
 def main():
-    app.run(host='0.0.0.0', port=3001, debug=True)
+    app.run(host = '0.0.0.0', port = 3001, debug = True)
 if __name__ == '__main__':
     main()
