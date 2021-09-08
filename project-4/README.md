@@ -36,8 +36,8 @@ We wanted to find out if a customer would respond to an offer by building a mode
 
 **Step 3:** I used a special function to loop over various selected algorithms to see how each compares with the model I fit. From the results RF and XGBoost scored very well so I continued fine tuning XGBoost using RandomSearchCV to find the best parameters to use on our model. I saved the model files and continued to further evaluate training quality by looking at the Logloss and Classification Errors. I also looked at the Confusion Matrix and Feature Importance of the model to make sure it can accuratly classify each prediction. My analysis returned training data scores of:
 
-Training Accuracy: 92.42%
-Training F1 Score: 91.70%
+- Training Accuracy: 92.42%
+- Training F1 Score: 91.70%
 
 **Step 4:** Look at other ways to evaluate the model and determine if it is overfitting or underfitting.
 
