@@ -42,7 +42,7 @@ Step 4: Look at other ways to evaluate the model and determine if it is overfitt
 
 Step 5: Feature Importance as discussed earlier refers to a numerical value used to describe the predictive power of each feature in the dataset. This is used to determine which features will provide the best fit for the model so accurate predictions can be made. This is importance, since variable selection is quite difficult. The top 5 importances are:
 
-![png](images/feature_importance.jpg)
+![png](images/feature_importance.png)
 
 total_amount - amount spent by the customer
 reward - reward given for completing an offer
