@@ -30,17 +30,17 @@ Keep in mind as well that someone using the app might make a purchase through th
 
 We wanted to find out if a customer would respond to an offer by building a model that predicts just that.
 
-Step 1: The first step was to evaluate the data we had to work with. We had three json files to work with, portfolio.json - includes offer meta data, profile.json - includes demographic data for each customer, and transcript - includes records for trasactions, offers viewed/received/completed.
+**Step 1:** The first step was to evaluate the data we had to work with. We had three json files to work with, portfolio.json - includes offer meta data, profile.json - includes demographic data for each customer, and transcript - includes records for trasactions, offers viewed/received/completed.
 
-Step 2: The second step was to convert each dataset to DataFrames before exploring and cleaning them in preparation to combining them. I saved the cleaned DataFrame as a csv file before splitting into training and testing sets. Next, I scaled the X_train and X_test arrays to minimise bias to prepare for fitting them into a suitable algorithm.
+**Step 2:** The second step was to convert each dataset to DataFrames before exploring and cleaning them in preparation to combining them. I saved the cleaned DataFrame as a csv file before splitting into training and testing sets. Next, I scaled the X_train and X_test arrays to minimise bias to prepare for fitting them into a suitable algorithm.
 
-Step 3: I used a special function to loop over various selected algorithms to see how each compares with the model I fit. From the results RF and XGBoost scored very well so I continued fine tuning XGBoost using RandomSearchCV to find the best parameters to use on our model. I saved the model files and continued to further evaluate training quality by looking at the Logloss and Classification Errors. I also looked at the Confusion Matrix and Feature Importance of the model to make sure it can accuratly classify each prediction. My analysis returned training data scores of
+**Step 3:** I used a special function to loop over various selected algorithms to see how each compares with the model I fit. From the results RF and XGBoost scored very well so I continued fine tuning XGBoost using RandomSearchCV to find the best parameters to use on our model. I saved the model files and continued to further evaluate training quality by looking at the Logloss and Classification Errors. I also looked at the Confusion Matrix and Feature Importance of the model to make sure it can accuratly classify each prediction. My analysis returned training data scores of
 
 Training Accuracy: 92.42%
 Training F1 Score: 91.70%
-Step 4: Look at other ways to evaluate the model and determine if it is overfitting or underfitting.
+**Step 4:** Look at other ways to evaluate the model and determine if it is overfitting or underfitting.
 
-Step 5: Feature Importance as discussed earlier refers to a numerical value used to describe the predictive power of each feature in the dataset. This is used to determine which features will provide the best fit for the model so accurate predictions can be made. This is importance, since variable selection is quite difficult. The top 5 importances are:
+**Step 5:** Feature Importance as discussed earlier refers to a numerical value used to describe the predictive power of each feature in the dataset. This is used to determine which features will provide the best fit for the model so accurate predictions can be made. This is importance, since variable selection is quite difficult. The top 5 importances are:
 
 ![png](images/feature_importance.png)
 
