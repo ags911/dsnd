@@ -25,6 +25,6 @@ In this project, we used data engineering skills to analyze disaster data from F
   
 <!-- Project 4 -->
   
-<a href="https://github.com/ags911/udacity-dsnd/tree/main/project-4"><img align="left" width="250" height="150" img src="project-4/starbucks.jpg"><a/> **[Project 4:  Starbucks Capstone Project](https://github.com/ags911/udacity-dsnd/tree/main/project-4)**  
+<a href="https://github.com/ags911/udacity-dsnd/tree/main/project-4"><img align="left" height="150" img src="project-4/starbucks.jpg"><a/> **[Project 4:  Starbucks Capstone Project](https://github.com/ags911/udacity-dsnd/tree/main/project-4)**  
   
 This capstone project uses a simulated data to provide insight to how people make purchasing decisions, and how those decisions are influenced by promotional offers. The data contains various events, including receiving offers, opening offers, and making purchases. Our task is to identify which groups of people are most responsive to each type of offer, and how best to present them by finding traits and purchasing patterns.
