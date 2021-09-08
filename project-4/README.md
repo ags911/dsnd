@@ -45,11 +45,11 @@ Training F1 Score: 91.70%
 
 ![png](images/feature_importance.png)
 
-total_amount - amount spent by the customer
-reward - reward given for completing an offer
-offer_duration - time for offer to be open
-offer_difficulty - minimum required spend to complete an offer
-social - the offer was received on a social channel
+- **total_amount** - amount spent by the customer
+- **reward** - reward given for completing an offer
+- **offer_duration** - time for offer to be open
+- **offer_difficulty** - minimum required spend to complete an offer
+- **social** - the offer was received on a social channel
 
 ## Dependencies
 
