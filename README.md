@@ -21,10 +21,11 @@ In this project, we used data engineering skills to analyze disaster data from F
 <a href="https://github.com/ags911/udacity-dsnd/tree/main/project-2"><img align="left" width="250" height="150" img src="project-2/images/aid.jpg"><a/> **[Project 2:  Disaster Response Pipeline Project](https://github.com/ags911/udacity-dsnd/tree/main/project-2)**  
   
 In this project, we used data engineering skills to analyze disaster data from Figure Eight. This data was used to build a model for an API that classifies disaster messages. A machine learning pipeline was created to categorize these events so that the messages could be sent to an appropriate disaster relief agency. This project also includes an interactive web app.
-<br></br>+
+<br></br>
   
 <!-- Project 4 -->
   
 <a href="https://github.com/ags911/udacity-dsnd/tree/main/project-4"><img align="left" width="250" height="150" img src="project-4/starbucks.jpg"><a/> **[Project 4:  Disaster Response Pipeline Project](https://github.com/ags911/udacity-dsnd/tree/main/project-2)**  
   
-In this project, we used data engineering skills to analyze disaster data from Figure Eight. This data was used to build a model for an API that classifies disaster messages. A machine learning pipeline was created to categorize these events so that the messages could be sent to an appropriate disaster relief agency. This project also includes an interactive web app.
+This capstone project uses a simulated dataset to provide insight to how people make purchasing decisions, and how those decisions are influenced by promotional offers.
+Each person in the simulation has some hidden traits that influence their purchasing patterns and are associated with their observable traits. People produce various events, including receiving offers, opening offers, and making purchases.As a simplification, there are no explicit products to track. Only the amounts of each transaction or offer are recorded. Our basic task is to use the data to identify which groups of people are most responsive to each type of offer, and how best to present each type of offer.
