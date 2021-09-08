@@ -7,10 +7,10 @@
 ## Table of Contents
 
  1. [Summary](#summary)
- 2. [Dependencies](#dependencies)
- 3. [Installation](#installation)
- 4. [Instructions](#instructions)
- 5. [Screenshots](#screenshots)
+ 2. [Conclusion](#conclusion)
+ 3. [Dependencies](#dependencies)
+ 4. [Installation](#installation)
+ 5. [Instructions](#instructions)
  
 ## Summary
 
