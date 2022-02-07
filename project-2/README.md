@@ -25,7 +25,7 @@ This project includes a web app where an emergency worker can input a new messag
 - Python: 3.5+
 - Machine Learning Libraries: Pandas, NumPy, SciPy, Sciki-Learn
 - Natural Language Process Libraries: NLTK
-- SQLlite Database Libraqries: SQLalchemy
+- SQLlite Database Libraries: SQLalchemy
 - Model Loading and Saving Library: Pickle
 - Web App and Data Visualization: Flask, Plotly
 
