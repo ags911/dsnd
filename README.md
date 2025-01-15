@@ -20,7 +20,7 @@ In this project, we used data engineering skills to analyze disaster data from F
   
 <a href="https://github.com/ags911/udacity-dsnd/tree/main/project-3"><img align="left" width="250" height="150" img src="project-3/images/ibm_logo_2400x1440.jpg"><a/> **[Project 3:  IBM Recomendation Engine Project](https://github.com/ags911/udacity-dsnd/tree/main/project-3)**  
   
-In this project, we used data engineering skills to analyze disaster data from Figure Eight. This data was used to build a model for an API that classifies disaster messages. A machine learning pipeline was created to categorize these events so that the messages could be sent to an appropriate disaster relief agency. This project also includes an interactive web app.
+This project, a collaboration with IBM, focuses on developing a recommendation engine for the IBM Watson Community. By exploring various recommendation techniques, we aim to suggest relevant articles to users, enhancing their overall experience on the platform and fostering greater engagement.
 <br></br>
   
 <!-- Project 4 -->
