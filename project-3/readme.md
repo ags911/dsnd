@@ -1,4 +1,5 @@
 # Building a Recommendation Engine for the IBM Watson Community
+### by Darren Gidado
 ![jpg](images/ibm_logo_2400x1440.jpg)
 
 This project, undertaken as part of Udacity's Data Scientist Nanodegree program, involved a collaboration with IBM to develop a recommendation engine for their Watson Community users. The goal was to suggest relevant articles that would keep users engaged on the platform.
