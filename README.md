@@ -20,7 +20,7 @@ In this project, we used data engineering skills to analyze disaster data from F
   
 <a href="https://github.com/ags911/udacity-dsnd/tree/main/project-3"><img align="left" width="250" height="150" img src="project-3/images/ibm_logo_2400x1440.jpg"><a/> **[Project 3:  IBM Recomendation Engine Project](https://github.com/ags911/udacity-dsnd/tree/main/project-3)**  
   
-This project, a collaboration with IBM, focuses on developing a recommendation engine for the IBM Watson Community. By exploring various recommendation techniques, we aim to suggest relevant articles to users, enhancing their overall experience on the platform and fostering greater engagement.
+This project, a collaboration with IBM, focuses on developing a recommendation engine for the IBM Watson Community. By exploring various recommendation techniques, such as collaborative filtering and content-based filtering, we aim to suggest relevant articles to users, enhancing their overall experience on the platform and fostering greater engagement within the IBM Watson Community.
 <br></br>
   
 <!-- Project 4 -->
